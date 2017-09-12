@@ -1,6 +1,6 @@
 "use strict";
 
-global.__base = path.dirname(`${__filename}/`);
+global.__base = require('path').dirname(`${__filename}/`);
 
 module.exports = config =>
   Object.freeze({
