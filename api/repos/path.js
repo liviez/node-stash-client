@@ -1,9 +1,3 @@
 "use strict";
-
-// Third Party
-const include = require("include")(__dirname);
-
-// Project
-const basePath = include("api/path");
-
-module.exports = () => `${basePath()}/repos`;
+// Check this shit
+module.exports = () => `/rest/api/1.0/repos`;

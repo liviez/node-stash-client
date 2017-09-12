@@ -1,9 +1,3 @@
 "use strict";
 
-// Third Party
-const include = require("include")(__dirname);
-
-// Project
-const basePath = include("api/path");
-
-module.exports = projectKey => `${basePath()}/projects/${projectKey || ""}`;
+module.exports = projectKey => `/rest/api/1.0/projects/${projectKey || ""}`;

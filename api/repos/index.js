@@ -1,21 +1,19 @@
 "use strict";
 
-// Third Party
 const curry = require("lodash/fp/curry");
-const include = require("include")(__dirname);
 
 // Project
-const asPaged = include("src/createOptions/asPaged");
-const createOptions = include("src/createOptions");
-const filterProperties = include("src/filterProperties");
-const request = include("lib/request");
-const reposPath = include("api/repos/path");
+const asPaged = require(`${__base}/src/createOptions/asPaged`);
+const createOptions = require(`${__base}/src/createOptions`);
+const filterProperties = require(`${__base}/src/filterProperties`);
+const request = require(`${__base}/lib/request`);
+const reposPath = require(`${__base}/api/repos/path`);
 
 // Setup
-const filterListParams = filterProperties(asPaged(["name", "projectname", "permission", "visibility"]));
+const filterListParams = filterProperties(
+  asPaged(["name", "projectname", "permission", "visibility"])
+);
 
-module.exports = curry((config, params) => request(createOptions.forGet(
-  config,
-  reposPath(),
-  filterListParams(params)
-)));
+module.exports = curry((config, params) =>
+  request(createOptions.forGet(config, reposPath(), filterListParams(params)))
+);

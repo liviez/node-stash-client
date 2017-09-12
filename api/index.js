@@ -1,37 +1,16 @@
-"use strict";
+'use strict';
 
-// Third Party
-const include = require("include")(__dirname);
-
-module.exports = config => Object.freeze({
-  admin() {
-    return include("api/admin")(config);
-  },
-  applicationProperties() {
-    return include("api/applicationProperties")(config);
-  },
-  hooks() {
-    return include("api/hooks")(config);
-  },
-  logs() {
-    return include("api/logs")(config);
-  },
-  markup() {
-    return include("api/markup")(config);
-  },
-  profile() {
-    return include("api/profile")(config);
-  },
-  projects() {
-    return include("api/projects")(config);
-  },
-  repos(params) {
-    return include("api/repos")(config, params);
-  },
-  users() {
-    return include("api/users")(config);
-  },
-  tasks() {
-    return include("api/tasks")(config);
-  }
-});
+module.exports = config =>
+  Object.freeze({
+    admin: () => require(`${__base}/api/admin`)(config),
+    applicationProperties: () =>
+      require(`${__base}/api/applicationProperties`)(config),
+    hooks: () => require(`${__base}/api/hooks`)(config),
+    logs: () => require(`${__base}/api/logs`)(config),
+    markup: () => require(`${__base}/api/markup`)(config),
+    profile: () => require(`${__base}/api/profile`)(config),
+    projects: () => require(`${__base}/api/projects`)(config),
+    repos: params => require(`${__base}/api/repos`)(config, params),
+    users: () => require(`${__base}/api/users`)(config),
+    tasks: () => require(`${__base}/api/tasks`)(config)
+  });

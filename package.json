@@ -13,6 +13,7 @@
   "main": "index.js",
   "scripts": {},
   "dependencies": {
+    "app-module-path": "^2.2.0",
     "bluebird": "^3.3.5",
     "include": "^1.1.0",
     "lodash": "^4.11.1",

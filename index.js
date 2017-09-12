@@ -1,9 +1,8 @@
 "use strict";
 
-module.exports = function clientFactory(config) {
-  return Object.freeze({
-    api() {
-      return require("./api")(config);
-    }
+global.__base = path.dirname(`${__filename}/`);
+
+module.exports = config =>
+  Object.freeze({
+    api: () => require("./api")(config)
   });
-};
